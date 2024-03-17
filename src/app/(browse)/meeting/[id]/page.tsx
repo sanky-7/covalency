@@ -1,11 +1,13 @@
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 import MeetingPage from "../_components/MeetingPage";
 
 interface PageProps {
   params: { id: string };
 }
 
-export function generateMeta({ params: { id } }: PageProps): Metadata {
+export async function generateMetadata({
+  params: { id },
+}: PageProps): Promise<Metadata> {
   return {
     title: `Meeting ${id}`,
   };
